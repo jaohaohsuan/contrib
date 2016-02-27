@@ -5,14 +5,9 @@
   changed_when: false
   always_run: yes
 
-- name: Init the is_atomic fact
-  set_fact:
-    is_atomic: false
-
 - name: Set the is_atomic fact
   set_fact:
-    is_atomic: true
-  when: s.stat.exists
+    is_atomic: "{{ s.stat.exists }}"
 
 - name: Set docker config file directory
   set_fact:
@@ -29,14 +24,9 @@
   changed_when: false
   always_run: yes
 
-- name: Init the has_rpm fact
-  set_fact:
-    has_rpm: false
-
 - name: Set the has_rpm fact
   set_fact:
-    has_rpm: true
-  when: s.stat.exists
+    has_rpm: "{{ s.stat.exists }}"
 
 - name: Init the has_firewalld fact
   set_fact:
