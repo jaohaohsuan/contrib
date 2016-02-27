@@ -8,8 +8,7 @@
 
 - name: Set the has_firewalld fact
   set_fact:
-    has_firewalld: true
-  when: s.rc == 0
+    has_firewalld: "{{ s.rc == 0 }}"
 
 - name: Determine if iptables-services installed
   command: "rpm -q iptables-services"
@@ -20,5 +19,4 @@
 
 - name: Set the has_iptables fact
   set_fact:
-    has_iptables: true
-  when: s.rc == 0
+    has_iptables: "{{ s.rc == 0 }}"
